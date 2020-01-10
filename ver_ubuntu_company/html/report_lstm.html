@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta http-equiv="content-type" charset="utf-8">
+    <script type="text/javascript" async 
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+
+<style>
+body {
+    background-color: rgb(255, 255, 255);
+}
+header{
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+div {
+    border: 2px solid black;
+    margin: 10px 50px 10px 50px;
+    padding: 0px 20px 0px 20px;
+}
+.img_space {
+    margin: 20px 0px 0px 0px;
+}
+p{
+  text-indent: 1em;
+}
+
+@media print {
+  @page {
+    /* size: 640px 480px; */
+    margin: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  section {
+    margin: 0;
+    box-shadow: none;
+    page-break-before: always;
+  }
+}
+
+</style>
+
+<body>
+    
+<header>
+
+    <h2>LSTMを用いた時系列データにおける異常検知技術の開発</h2>
+</header>
+
+<div>
+    <h4>1.背景・目的</h4>
+    <p>
+
+        設備から取得できる各種センサーデータを用いて，設備故障の予兆検知，突発の異常検知を行う需要が高まっている．
+        一方で，そういったセンサーデータは可視化が難しく，さらに熟練者の地検が必要で，読み解くことが難しい．
+        さらに，異常データは発生する頻度が低く，パターンが多様なため定義が困難である.
+        そこで良品学習に基づく時系列異常判定を行う．良品学習に基づく手法は，正常の波形を自己回帰モデルによって学習を行い，実用では，波形を入力し，波形を予測させ，実測
+        <ul>
+            <li>社内センサーデータが多い</li>
+            <li>応用先，電流値，加速度などのモニター</li>
+            <li>時系列データの良品学習→NG不要</li>
+        </ul>
+        異常度を算出するため，異常が発生した時刻，異常度，センサーの種類等説明性が高い．
+    </p>
+</div>
+
+<div>
+    <h4>2.結論</h4>
+    <p>
+    　LSTMを用いた時系列データの異常検知を行った．
+    用いたデータは，心拍のデータ，エンジンのデータを用いて効果を確認．
+    
+
+    <br>
+    
+    </p>
+</div>
+
+<div>
+    <h4>3.今後の進め方</h4>
+    <ul>
+        <li>ステアリング部品の加工機から取得できるデータに対して適応予定．</li>
+        <li>シーメンスのエンジンデータを用いて確認</li>
+    </ul>
+
+</div>
+
+<div>
+    <h4>4.内容</h4>
+    <p>
+    LSTM (Long Short Term Memory) Networkは，時系列データの長期的な依存関係を学習する機械学習モデルである．
+    このモデルを正常な時系列データを用いて，時刻t以降の複数の時刻を予測する学習を行う．
+    評価の際，予測と真値の誤差を判定に用いる．
+    正常データの予測誤差でモデル化された多変量ガウス分布を用いて，異常度を算出する．
+    予測誤差を多変量ガウス分布
+    </p>
+
+    <h4>4.1. LSTM (Long Short Term Memory) の基本構造</h4>
+
+    <center><img src="../img/lstm_arc.jpg" height="200px"></center>
+
+    \begin{equation}
+    f = \sigma(x_{t}W_x^{f} + s_{t-1}W_h^{f})
+    \end{equation}
+
+    \begin{equation}
+    g = tanh(x_{t}W_x^{g} + s_{t-1}W_h^{g} + b^g)
+    \end{equation}
+
+    \begin{equation}
+    i = \sigma(x_{t}W_x^{i} + s_{t-1}W_h^{i} + b^i)
+    \end{equation}
+
+    \begin{equation}
+    o = \sigma(x_{t}W_x^{o} + h_{t-1}W_h^{o} + b^o)
+    \end{equation}
+
+    \begin{equation}
+    c_t = c_{t-1} \odot f + g \odot i
+    \end{equation}
+
+    \begin{equation}
+    h_t = o \odot tanh(c_t)
+    \end{equation}
+
+    \begin{equation}
+    c : 記憶セル  (LSTMレイヤ内だけで情報を伝える．)\\
+    h : 隠れ状態  (別レイヤへ出力．) \\ \\
+
+    
+
+    \end{equation}
+
+
+    <p>LSTMは時系列データの長期的な依存関係を学習モデルである．
+        入力，出力，忘却ゲートに関する計算はシグモイド関数によって0-1になる．
+        過去の入力状態のゲートは入力値と過去の状態によって現在の入力を反映させるか過去の状態を反映させるか決定する．
+        内部メモリーは過去の入力と現在の入力をどのように組み合わせるか決定する．
+        各オブジェクトの役割\( c\): 内部セル
+    </p>
+
+    <h4>4.2. LSTMを用いた異常検知</h4>
+    
+    <p>数フレームの値を入力として，時刻tのフレーム値を予測する自己回帰LSTMを学習させる．
+    </p>
+
+    <ol>
+        <li>自己回帰型LSTMを学習</li>
+        正常波形の時刻\( t\) から\( l \)フレーム遡って入力，
+        LSTMへの入力\( x = \{x_{t-l},...,x_{t-2},x_{t-1}\} \)
+        
+        <li>正常波形データを予測した際の誤差の多変量ガウス分布を</li>
+
+        \( y_{predict} = \rm{LSTM} (x_{input}) \)
+
+        <li>予測値と実測値の誤差を算出</li>
+
+        \( e_{test} = | y_{true} - y_{predict}  | \)
+        <li>マハラノビス距離を用いて誤差ベクトルの異常度を算出</li>
+
+        \( p(x) = (x-\mu)^T \Sigma (x-\mu) \)
+
+        <li></li>
+    </ol>
+</div>
+
+<div>
+    <h4>5.実験概要および結果</h4>
+    <p>エンジンのデータを用いて，異常を検知できるか調査を行う．用いるデータセットは</p>
+    <p>心電図（ECG）2：心室前収縮に対応する単一の短期異常を含むqtdb / sel102 ECGデータセット図5.1</p>
+    <p>Space Shuttle Marotta valveのデータセット図5.2</p>
+
+    <img src="../img/wave.png" width="400px" class="img_space">
+    <img src="../img/anomaly.png" width="400px" class="img_space"><br>
+    <img src="../img/predict.png" height="200px" width="400px">
+    <img src="../img/error.png" hegith = "200px" width="400px">
+    
+</div>
+
+<div>
+<h4>参考文献</h4>
+
+
+</div>
+
+
+</body>
+</html>

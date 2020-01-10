@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="../css/mystyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta http-equiv="content-type" charset="utf-8">
+</head>
+<body>
+
+<img src="../img/sabosan.png" height="100px"><br>
+
+<a href="https://github.com/sabosan331">sabosan331@github</a><br>
+<a href="mailto:sabosan331@gmail.com">sabosan022@gmail.com</a>
+
+<div id="todo" class="box_red">
+    <span class="box-title">To do</span>
+    <ul>
+        <!-- <li>{{ index + 1 }} : {{ todo.text }}</li> -->
+        <li>奈良工場，C-EPS検査機導入</li>
+        <li class="done"><a href="./report_lstm.html">LSTM for Anomaly Detection</a></li>
+        <li>Domain Adaptation for Different types of Products</li>
+    </ul>
+</div>
+
+
+<div class="box_gray">
+<span class="box-title">What I've done</span>
+<center><img src="../img/summary.jpg" width="700px"></center>
+<ul>
+        <li>VAE for Anomaly Detection</li>
+        <li>Basic GAN</li>
+        <li>Multi-label CNN</li>
+        <li>Domain Adaptation using MCD</li>
+        <li>LSTM for Anomaly Detection</li>
+        <li>xyz + LSTM for Gesture Recognition</li>
+        <li>3DCNN for Gesture Recognition</li>
+        <li>GrabCut → U-NET</li>
+        <li>YOLO</li>
+</ul>
+</div>
+
+<div class="box_gray">
+<span class="box-title">Undone</span>
+<ul>
+    <li>Attention Branch Model</li>
+    <li>Single Shot Multibox Detector</li>
+    <li>Neural Architecture Search</li>
+</ul>
+</div>
+
+<div id="interests" class="box_green">
+    <span class="box-title">Interests in ML</span>
+    <ul>
+        <li>Domain Adaptation, Domain Discrepancy Mesurement</li>
+        <li>画像の分散表現</li>
+        <li>Fundamental</li>
+    </ul>
+</div>
+
+<div id="skill_up" class="box_green">
+    <span class="box-title">Skill Up</span>
+    <ul v-for="(list,index) in lists">
+        <li><a href="https://developer.mozilla.org/ja/docs/Web">Web app</a></li> 
+        <li>Device × ML</li>
+    </ul>
+</div>
+
+<div id="books" class="box_green">
+    <span class="box-title">Books</span>
+    <ul v-for="(list,index) in lists">
+        <li>GANの本(トランプの絵柄みたいな)</li>
+        <li>わかりやすいパターン認識</li>
+    </ul>
+</div>
+
+<table>
+    <tr align="center">
+     <th></th>
+     <th>4</th><th>5</th><th>6</th>
+     <th>7</th><th>8</th><th>9</th>
+     <th>10</th><th>11</th><th>12</th>
+     <th>1</th><th>2</th><th>3</th>
+   
+    </tr>
+    
+    <tr align="center">
+     <th>2018</th>
+     <td>研修</td><td>研修</td><td>VAE<br></td>
+     <td>GAN</td><td>GAN</td><td>実習</td>
+     <td>実習</td><td>実習</td><td>引っ越し</td><td>引っ越し</td><td>VAE</td><td>CAM<br>Multi-CNN<br>grad-CAM</td>
+   
+    </tr>
+    <tr align="center">
+     <th>2019</th>
+     <td>UDA<br>Gesture(xyz)</td><td>AnoLSTM<br></td><td>-</td>
+     <td>-</td><td>-</td><td>-</td>
+     <td>-</td><td>-</td><td>-</td>
+     <td>-</td><td>-</td><td>-</td>
+    </tr>
+   
+   </tr>
+   <tr align="center">
+    <th>2020</th>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+   </tr>
+   
+   </table>
+   
+   
+   
+
+
+
+
+</body>
+</html>
+
+
+

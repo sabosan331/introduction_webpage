@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+            body {
+                max-width: 700px;
+                margin: 50px auto;
+            }
+            
+    </style>
+</head>
+
+<body>
+
+<h4>1. パターン認識とは</h4>
+<li>クラス間を得判別できる特徴量かつできるだけ次元は小さく</li>
+
+<h4>4. 識別部の設計</h4>
+<li>確率密度関数想定→パラメトリック，確率密度関数想定しない→ノンパラメトリック</li>
+<li>正規分布は\( \mu と \Sigma \)を決めれば良い．</li>
+<li>QDF必要データ数 > LSF必要データ数</li>
+<li>1次元空間上へ射影後，この空間上で決定境界を定める</li>
+
+<h4>5． 特徴の評価とベイズ誤り確率</h4>
+<li>\( \rm{MSE} = \rm{Bias}^2 + \rm{Var} \) モデルの自由度→大：偏り→小（真値に近づく），分散→大</li>
+<a href="https://qiita.com/kento1109/items/7717f781dca2d0f99a66">Bias and Variance</a>
+
+
+<h4>主な識別法</h4>
+<li>NN法</li>
+<li>ガウス分布</li>
+<li>LDF</li>
+<li>QDF</li>
+        
+
+</body>
+</html>

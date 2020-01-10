@@ -1,0 +1,33 @@
+div {
+    margin : 20px;
+    padding : 10px 20px 10px 20px ;
+    /* border : 2px solid black ; */
+    /* color: white;
+    background-color: #4285f4; */
+}
+
+body {
+    /* border: dashed 3px #000000; */
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menues {
+    color: white;
+    background-color: whitesmoke;
+}
+
+.career{
+    color: white;
+    background-color: #2a6ebb;
+}
+
+.skill{
+    color: white;
+    background-color: #ff8a00;
+}
+
+.rect{
+    border : 2px solid black ;
+}

@@ -1,0 +1,33 @@
+<!-- button click and show message and countdown -->
+<button onclick="showMessage()">Click me!</button>
+
+<div id="hiddenMessage" style="display:none">
+  <p></p>Count down, click the button</p>
+  <button id="countDownButton" onclick="countDown()">10</button>
+</div>
+
+<p id="finishCountdown"></p>
+
+<script>
+
+function showMessage() {
+  document.getElementById("hiddenMessage").style.display = 'block';
+}
+
+function countDown() {
+  var currentVal = document.getElementById("countDownButton").innerHTML;
+  
+  // finish count == 0 and put the message.
+  if ( 1 < currentVal ){ 
+  var newValu = currentVal - 1;
+  } else {
+  var newValu = 0;
+  document.getElementById("finishCountdown").innerHTML = "Finish Count down!";
+  }
+
+  // not end → show the current value
+  document.getElementById("countDownButton").innerHTML = newValu;
+
+}
+
+</script>
