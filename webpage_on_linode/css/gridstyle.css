@@ -1,4 +1,3 @@
-  
 a {
     color: #222222;
     text-decoration: none;
@@ -7,41 +6,50 @@ a:hover {
     color: darkgreen;
     font-weight:bold;
 }
-
 body {
     margin:0px;
     background-color: #aaaaaa;
-    /* フォントの種類を指定 */
     font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
-    /* 字間(プロポーショナルメトリクス)を指定 */
     font-feature-settings: "palt";
 }
-  
 .container {
     margin : 0 5% 0 5%;
-    /* font-size: 1.5rem; */
-    background-color:#ffffff;
     box-shadow: 0 0 8px gray;
-} 
+    background-color:#ffffff;
+    display: grid;
+    height: 100vh;
+    grid-template-areas: "nav main"
+                        /* "nav  main" */
+                        "footer  footer";
+    grid-template-rows: 96% 4%;
+    grid-template-columns: 150px auto;
+}
 .container > * {
     padding: 10px;
 }
-
-.nav {
+.container > nav {
+    grid-area: nav;
     font-size: 1.0rem;
     border-right:solid 1px #cccccc;
     /* position: fixed; */
 }
+.container > main {
+    grid-area : main;
+    overflow-y: auto;
+}
+.container > footer {
+    grid-area : footer;
+    background-color : #377250;
+    color: #ffffff;
+}
 .icon {
     color : rgba(8, 78, 8, 0.856);
 }
-
-
 /* その他 */
 .projects_contents{
     /* flex 1; */
     width: 400px;
-    margin : 20px auto 20px auto;
+    margin : 10px auto 10px auto;
     padding : 30px;
 }
 li {
@@ -51,31 +59,10 @@ li:hover{
     color: darkgreen;
     /* font-weight:bold; */
 }
-
 .red {
     color:rgb(201, 10, 10);
     font-weight:bold;
-}
- /* グリッドコンテナ */
-.container {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    grid-template-rows: 1200px 1fr;
-}
-.nav {
-    grid-column: 1;
-    grid-row: 1;
-}
-.main {
-    grid-column: 2;
-    grid-row: 1;
-}  
-.footer {
-    grid-column: 1 / 4;
-    grid-row: 2;
-}
- 
- 
+} 
 @media only screen and (max-width: 700px) {
      
 html{
@@ -89,74 +76,44 @@ html{
     background-color:pink;
 } */
 
+.container {
+    margin : 0 5% 0 5%;
+    box-shadow: 0 0 8px gray;
+    background-color:#ffffff;
+    display: grid;
+    height: 100vh;
+    grid-template-areas: "nav nav"
+                        "main  main"
+                        "footer  footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 4% 92% 4%;
+}
+
 .nav{
-    
     padding:0;
     display:flex;
     flex-direction: row;
-    /* overflow: hidden; */
-    /* justify-content:center; */
-    background-color: #111111;
-    
-    /* color: #ffffff; */
-    /* border:solid 3px red; */
-    /* border-bottom:solid 1px rgba(8, 78, 8, 0.856); */
-    
+    background-color: #111111;    
 }
-
 .nav_item{
-    /* width:10%; */
     color: #ffffff;
     padding:10px;
-    /* font-size:110%; */
     flex-grow:1;
     flex-shrink:1;
     flex-basis:0;
-    /* border:solid 1px white; */
 }
-
 .nav_home {
     background-color:#377250;
     border:solid 1px #377250;
 }
-
 .nav_last {
     margin-right:auto;
 }
 .icon{
     display:none;
 }
-
 .projects_contents{
-    /* flex 1; */
-    /* width: 60%; */
     width: 70%;
-    margin : 20px auto 20px auto;
     padding : 30px;
-    /* border:solid 1px black; */
 }
-
-    /* グリッドコンテナ */
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1000px 30px;
 }
-.nav {
-    grid-column: 1;
-    grid-row: 1;
-}
-.main {
-    grid-column: 1;
-    grid-row: 2;
-}  
-.footer {
-    /* display:flex; */
-    margin:0px;
-    vertical-align:center;
-    /* border-top: solid 1px #cccccc; */
-    grid-column: 1;
-    grid-row: 3;
-}
- 
-} /* デバイスの横幅が320px以下の場合 */
