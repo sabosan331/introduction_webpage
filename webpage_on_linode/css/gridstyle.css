@@ -1,4 +1,13 @@
 
+* {
+    box-sizing: border-box;
+}
+body {
+    margin:0px;
+    background-color: #aaaaaa;
+    font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
+    font-feature-settings: "palt";
+}
 a {
     color: #222222;
     text-decoration: none;
@@ -7,12 +16,7 @@ a:hover {
     color: darkgreen;
     font-weight:bold;
 }
-body {
-    margin:0px;
-    background-color: #aaaaaa;
-    font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
-    font-feature-settings: "palt";
-}
+
 .container {
     margin : 0 5% 0 5%;
     box-shadow: 0 0 8px gray;
@@ -48,8 +52,8 @@ body {
 /* その他 */
 .projects_contents{
     width: 300px;
-    margin : 10px auto 10px auto;
-    padding : 20px;
+    margin : 10px auto 0px auto;
+    padding : 10px;
     /* border : solid 1px #ccc; */
 }
 li {
@@ -112,6 +116,7 @@ font-size:12px;
     display:none;
 }
 .projects_contents{
-    width: 70%;
-    padding : 30px;
+    width: 90%;
+    margin : 10px auto 0px auto;
+    padding : 10px;
 }
